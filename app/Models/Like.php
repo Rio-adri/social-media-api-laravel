@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Comment extends Model
+class Like extends Model
 {
     //
-    protected $table = "comments";
+    protected $table = 'likes';
 
     use SoftDeletes;
-
+    
     protected $fillable = [
-        'post_id',
         'user_id',
-        'comment_text',
+        'post_id',
     ];
 }
-

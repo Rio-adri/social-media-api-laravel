@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CommentsController;
 
@@ -26,16 +27,16 @@ Route::prefix('v1')->group(function () {
         Route::delete('{id}', [CommentsController::class, 'destroy']);
     });
 
-    // // likes handle
-    // Route::prefix('likes')->group(function () {
-    //     Route::post('{id}', [LikesController::class, 'like']);
-    //     Route::delete('{id}', [LikesController::class, 'unlike']);
-    // });
+    // likes handle
+    Route::prefix('likes')->group(function () {
+        Route::post('/', [LikesController::class, 'store']);
+        Route::delete('{id}', [LikesController::class, 'destroy']);
+    });
 
     // // messages Handle
     // Route::prefix('messages')->group(function() {
-    //     Route::post('{id}', [MessagesController::class, 'send']);
-    //     Route::get('{id}', [MessagesController::class, 'message_detail']);
-    //     Route::delete('{id}', [MessagesController::class, 'delete']);
+    //     Route::post('{id}', [MessagesController::class, 'store']);
+    //     Route::get('{id}', [MessagesController::class, 'show']);
+    //     Route::delete('{id}', [MessagesController::class, 'destroy']);
     // });
 });
