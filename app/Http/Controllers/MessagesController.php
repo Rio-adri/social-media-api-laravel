@@ -51,6 +51,22 @@ class MessagesController extends Controller
         ]);
     }
 
+    public function getMessages($receiver_id) {
+        $messages = Message::where('receiver_id',$receiver_id)->get();
+
+        if(!$messages) {
+            return response()->json([
+                'success' => false,
+                'messages' => 'Tidak ada pesan untuk pengguna ini'
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $messages
+        ], 200);
+    }
+
     public function destroy($id) {
         Message::destroy($id);
 

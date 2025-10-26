@@ -38,6 +38,7 @@ Route::prefix('v1')->group(function () {
     Route::prefix('messages')->group(function() {
         Route::post('/', [MessagesController::class, 'store']);
         Route::get('{id}', [MessagesController::class, 'show']);
+        Route::get('/getMessages/{receiver_id}', [MessagesController::class, 'getMessages']);
         Route::delete('{id}', [MessagesController::class, 'destroy']);
     });
 });
