@@ -31,7 +31,7 @@ class MessagesController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $message
+            'id' => $message->id
         ], 201);
     }
 

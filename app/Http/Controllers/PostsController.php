@@ -40,7 +40,7 @@ class PostsController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Berhasil membuat post baru.',
-            'data' => $post
+            'id' => $post->id
         ], 201);
     }
 
