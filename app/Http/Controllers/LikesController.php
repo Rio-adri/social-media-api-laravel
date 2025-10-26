@@ -19,7 +19,7 @@ class LikesController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => $validator->errors()
-            ]);
+            ], 400);
         }
 
         $like = Like::create([
@@ -31,7 +31,7 @@ class LikesController extends Controller
             'success' => true,
             'message' => 'Berhasil menambahkan like',
             'data' => $like
-        ]);
+        ], 201);
     }
 
     public function destroy($id) {

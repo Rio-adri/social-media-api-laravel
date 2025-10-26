@@ -33,7 +33,7 @@ class CommentsController extends Controller
             'succes' => true,
             'message' => 'Comment berhasil dibuat',
             'data' => $comment,
-        ]);
+        ], 201);
     }
 
     public function destroy($id) {
