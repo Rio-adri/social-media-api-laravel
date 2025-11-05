@@ -6,6 +6,7 @@ use App\Http\Controllers\LikesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\JWTAuthController;
 
 
 Route::get('/user', function (Request $request) {
@@ -13,6 +14,9 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::prefix('v1')->group(function () {
+    // Auth handle
+    Route::post('register', [JWTAuthController::class, 'register']);
+
     // posts handle
     Route::prefix('posts')->group( function () {
         Route::get('/', [PostsController::class, 'index']); //membaca data
