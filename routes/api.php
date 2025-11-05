@@ -16,6 +16,7 @@ Route::get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     // Auth handle
     Route::post('register', [JWTAuthController::class, 'register']);
+    Route::post('login', [JWTAuthController::class, 'login']);
 
     // posts handle
     Route::prefix('posts')->group( function () {
