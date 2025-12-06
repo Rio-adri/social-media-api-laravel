@@ -13,6 +13,9 @@ Route::get('/logout', function () {
     return redirect()->action([HomeController::class, 'index'], ['sourceUrl' => 'Logout']);
 });
 
+Route::get('/external', function () {
+    return redirect()->away('https:/www.dicoding.com');
+});
 
 
 
